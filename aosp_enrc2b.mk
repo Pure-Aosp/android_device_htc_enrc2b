@@ -69,7 +69,7 @@ PRODUCT_PACKAGES += \
     
 
 # Power
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     power.tegra 
 
 # Filesystem management tools
