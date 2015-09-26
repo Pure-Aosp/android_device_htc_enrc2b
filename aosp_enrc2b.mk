@@ -21,8 +21,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
-$(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
-
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 #Recovery
@@ -115,8 +113,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 		ro.telephony.ril.config=signalstrength,skipbrokendatacall
 
 # We have enough storage space to hold precise GC data
-#PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_TAGS += dalvik.gc.type-precise
 
+$(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
 
 PRODUCT_DEVICE := enrc2b
 PRODUCT_NAME := aosp_enrc2b
