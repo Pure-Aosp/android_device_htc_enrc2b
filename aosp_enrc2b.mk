@@ -25,7 +25,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
     $(LOCAL_PATH)/recovery/sbin/power_test:recovery/root/sbin/power_test \
     $(LOCAL_PATH)/recovery/init.recovery.enrc2b.rc:recovery/root/init.recovery.enrc2b.rc
-    
+
 # Files needed for boot image
 PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/ramdisk/init.enrc2b.rc:root/init.enrc2b.rc \
@@ -66,11 +66,11 @@ PRODUCT_PACKAGES += \
     nfc.enrc2b \
     Nfc \
     Tag
-    
+
 
 # Power
 #PRODUCT_PACKAGES += \
-    power.tegra 
+    power.tegra
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -93,8 +93,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 # libhwui flags
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.render_dirty_regions=false   
-    
+    debug.hwui.render_dirty_regions=false
+
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -114,3 +114,9 @@ $(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
 
 # common tegra3-HOX+ configs
 $(call inherit-product, device/htc/tegra3-common/tegra3.mk)
+
+PRODUCT_DEVICE := enrc2b
+PRODUCT_NAME := aosp_enrc2b
+PRODUCT_BRAND := htc_europe
+PRODUCT_MODEL := One X+
+PRODUCT_MANUFACTURER := HTC
