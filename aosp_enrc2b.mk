@@ -13,9 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# common tegra3-HOX+ configs
-$(call inherit-product, device/htc/tegra3-common/tegra3.mk)
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from the common Open Source product configuration
@@ -37,7 +34,11 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/ramdisk/init.enrc2b.rc:root/init.enrc2b.rc \
     $(LOCAL_PATH)/ramdisk/init.enrc2b.usb.rc:root/init.enrc2b.usb.rc \
     $(LOCAL_PATH)/ramdisk/ueventd.enrc2b.rc:root/ueventd.enrc2b.rc \
-    $(LOCAL_PATH)/ramdisk/fstab.enrc2b:root/fstab.enrc2b
+    $(LOCAL_PATH)/ramdisk/fstab.enrc2b:root/fstab.enrc2b \
+  	$(LOCAL_PATH)/ramdisk/init.zygote32.rc:root/init.zygote32.rc \
+		$(LOCAL_PATH)/ramdisk/init.usb.rc:root/init.usb.rc \
+		$(LOCAL_PATH)/ramdisk/init.trace.rc:root/init.trace.rc \
+		$(LOCAL_PATH)/ramdisk/ueventd.rc:root/ueventd.rc
 
 # Prebuilt GPS/Camera/Wi-Fi configs
 PRODUCT_COPY_FILES += \
@@ -116,6 +117,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
+
+# common tegra3-HOX+ configs
+$(call inherit-product, device/htc/tegra3-common/tegra3.mk)
 
 PRODUCT_DEVICE := enrc2b
 PRODUCT_NAME := aosp_enrc2b
