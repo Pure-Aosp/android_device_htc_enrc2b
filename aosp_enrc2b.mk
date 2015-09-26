@@ -13,7 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# common tegra3-HOX+ configs
+$(call inherit-product, device/htc/tegra3-common/tegra3.mk)
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+
+$(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -67,7 +75,6 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 
-
 # Power
 #PRODUCT_PACKAGES += \
     power.tegra
@@ -108,12 +115,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 		ro.telephony.ril.config=signalstrength,skipbrokendatacall
 
 # We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
+#PRODUCT_TAGS += dalvik.gc.type-precise
 
-$(call inherit-product, vendor/htc/enrc2b/enrc2b-vendor.mk)
-
-# common tegra3-HOX+ configs
-$(call inherit-product, device/htc/tegra3-common/tegra3.mk)
 
 PRODUCT_DEVICE := enrc2b
 PRODUCT_NAME := aosp_enrc2b
